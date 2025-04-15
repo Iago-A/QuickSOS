@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "911888260304",
+    "firebase_url": "https://quicksos-6c0f1-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "quicksos-6c0f1",
+    "storage_bucket": "quicksos-6c0f1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:911888260304:android:55c04093a1e593982192d5",
+        "android_client_info": {
+          "package_name": "com.example.quicksos"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGWFJUc3I70Cj2eimkXFlnQ-tsh0IrNAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
