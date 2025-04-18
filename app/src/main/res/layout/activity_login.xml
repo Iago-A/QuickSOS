@@ -46,6 +46,7 @@
     <EditText
         android:id="@+id/passwordEditText"
         android:hint="Contraseña"
+        android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         app:layout_constraintTop_toTopOf="parent"
