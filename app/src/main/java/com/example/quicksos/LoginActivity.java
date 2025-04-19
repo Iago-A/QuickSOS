@@ -2,6 +2,7 @@ package com.example.quicksos;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
+    private Button loginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         TextView loginTextView = findViewById(R.id.loginTextView);
         EditText mailEditText = findViewById(R.id.mailEditText);
         EditText passwordEditText = findViewById(R.id.passwordEditText);
-        Button loginButton = findViewById(R.id.loginButton);
+        loginButton = findViewById(R.id.loginButton);
         TextView questionTextView = findViewById(R.id.questionTextView);
         Button registerButton = findViewById(R.id.registerButton);
 
@@ -43,22 +45,45 @@ public class LoginActivity extends AppCompatActivity {
 
         // Buttons click configuration
         loginButton.setOnClickListener(v -> {
-            String email = mailEditText.getText().toString();
-            String password = passwordEditText.getText().toString();
+            String email = mailEditText.getText().toString().trim();
+            String password = passwordEditText.getText().toString().trim();
 
-            loginUser(email, password);
+            validateUserData(email, password);
         });
 
         registerButton.setOnClickListener(v -> {
-//            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-//            startActivity(intent);
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(intent);
         });
     }
 
+    private void validateUserData(String email, String password) {
+        if (email.isEmpty() && password.isEmpty()) {
+            Toast.makeText(this, "Debe rellenar ambos campos", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (email.isEmpty()) {
+            Toast.makeText(this, "El campo correo electrónico está vacío", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (password.isEmpty()) {
+            Toast.makeText(this, "El campo contraseña está vacío", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        loginUser(email, password);
+    }
+
     private void loginUser(String email, String password) {
+        loginButton.setEnabled(false);
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
+                    // Deactivate temporarily the button
+                    loginButton.setEnabled(true);
+
                     if (task.isSuccessful()) {
                         Toast.makeText(LoginActivity.this, "Inicio de sesión exitoso.", Toast.LENGTH_SHORT).show();
                     } else {
