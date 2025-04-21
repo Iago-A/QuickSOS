@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">QuickSOS</string>
+    <string name="welcome">Welcome!</string>
+    <string name="login">Log In</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="repeat_password_hint">Confirm Password</string>
+    <string name="account_question">Don\'t have an account yet?</string>
+    <string name="create_account">Create Account</string>
+    <string name="email_content_description">Field to enter email</string>
+    <string name="password_content_description">Field to enter password</string>
+    <string name="repeat_password_content_description">Field to confirm password</string>
+    <string name="two_empty_fields">Both fields must be filled out</string>
+    <string name="three_empty_fields">All 3 required fields must be filled out</string>
+    <string name="email_empty">The email field is empty</string>
+    <string name="password_empty">The password field is empty</string>
+    <string name="repeat_password_empty">The confirm password field is empty</string>
+    <string name="successful_login">Login successful</string>
+    <string name="failed_login">Authentication error</string>
+    <string name="register_title">Register</string>
+    <string name="register">Register</string>
+    <string name="invalid_email">Invalid email</string>
+    <string name="short_password">Password must be at least 6 characters</string>
+    <string name="unmatched_password">Passwords do not match</string>
+    <string name="successful_register">User registered successfully</string>
+    <string name="email_in_use">This email is already registered</string>
+    <string name="failed_register">Registration error: </string>
+</resources>

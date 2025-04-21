@@ -35,13 +35,13 @@ public class LoginActivity extends AppCompatActivity {
         Button registerButton = findViewById(R.id.registerButton);
 
         // Establish accessibility descriptions
-        welcomeTextView.setContentDescription("¡Bienvenido!");
-        loginTextView.setContentDescription("Iniciar sesión");
-        mailEditText.setContentDescription("Campo para escribir el correo electrónico");
-        passwordEditText.setContentDescription("Campo para escribir la contraseña");
-        loginButton.setContentDescription("Iniciar sesión");
-        questionTextView.setContentDescription("¿No tienes una cuenta?");
-        registerButton.setContentDescription("Crear cuenta");
+        welcomeTextView.setContentDescription(getString(R.string.welcome));
+        loginTextView.setContentDescription(getString(R.string.login));
+        mailEditText.setContentDescription(getString(R.string.email_content_description));
+        passwordEditText.setContentDescription(getString(R.string.password_content_description));
+        loginButton.setContentDescription(getString(R.string.login));
+        questionTextView.setContentDescription(getString(R.string.account_question));
+        registerButton.setContentDescription(getString(R.string.create_account));
 
         // Buttons click configuration
         loginButton.setOnClickListener(v -> {
@@ -59,17 +59,17 @@ public class LoginActivity extends AppCompatActivity {
 
     private void validateUserData(String email, String password) {
         if (email.isEmpty() && password.isEmpty()) {
-            Toast.makeText(this, "Debe rellenar ambos campos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.two_empty_fields), Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (email.isEmpty()) {
-            Toast.makeText(this, "El campo correo electrónico está vacío", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.email_empty), Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (password.isEmpty()) {
-            Toast.makeText(this, "El campo contraseña está vacío", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.password_empty), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -85,9 +85,9 @@ public class LoginActivity extends AppCompatActivity {
                     loginButton.setEnabled(true);
 
                     if (task.isSuccessful()) {
-                        Toast.makeText(LoginActivity.this, "Inicio de sesión exitoso.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, getString(R.string.successful_login), Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(LoginActivity.this, "Error en autenticación.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, getString(R.string.failed_login), Toast.LENGTH_SHORT).show();
                     }
                 });
     }

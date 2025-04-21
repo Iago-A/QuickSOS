@@ -1,6 +1,5 @@
 package com.example.quicksos;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.widget.Button;
@@ -34,10 +33,10 @@ public class RegisterActivity extends AppCompatActivity {
 
         // Establish accessibility descriptions
         toolbar.setContentDescription("Toolbar");
-        mailEditText.setContentDescription("Campo para escribir el correo electrónico");
-        passwordEditText.setContentDescription("Campo para escribir la contraseña");
-        repeatPasswordEditText.setContentDescription("Campo para repetir la contraseña");
-        registerButton.setContentDescription("Registrar");
+        mailEditText.setContentDescription(getString(R.string.email_content_description));
+        passwordEditText.setContentDescription(getString(R.string.password_content_description));
+        repeatPasswordEditText.setContentDescription(getString(R.string.repeat_password_content_description));
+        registerButton.setContentDescription(getString(R.string.register));
 
         // Buttons click configuration
         registerButton.setOnClickListener(v -> {
@@ -53,43 +52,43 @@ public class RegisterActivity extends AppCompatActivity {
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle("Registro");
+            getSupportActionBar().setTitle(getString(R.string.register));
         }
     }
 
     private void validateUserData(String email, String password, String repeatPassword) {
         if (email.isEmpty() && password.isEmpty() && repeatPassword.isEmpty()) {
-            Toast.makeText(this, "Debe rellenar los 3 campos obligatorios", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.three_empty_fields), Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (email.isEmpty()) {
-            Toast.makeText(this, "El campo correo electrónico está vacío", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.email_empty), Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (password.isEmpty()) {
-            Toast.makeText(this, "El campo contraseña está vacío", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.password_empty), Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (repeatPassword.isEmpty()) {
-            Toast.makeText(this, "El campo repetir contraseña está vacío", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.repeat_password_empty), Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            Toast.makeText(this, "Correo inválido", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.invalid_email), Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (password.length() < 6) {
-            Toast.makeText(this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.short_password), Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (!password.equals(repeatPassword)) {
-            Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.unmatched_password), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -105,15 +104,15 @@ public class RegisterActivity extends AppCompatActivity {
                     registerButton.setEnabled(true);
 
                     if (task.isSuccessful()) {
-                        Toast.makeText(RegisterActivity.this, "Usuario registrado correctamente.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, getString(R.string.successful_register), Toast.LENGTH_SHORT).show();
                         finish();
 
                     } else {
                         if (task.getException() instanceof FirebaseAuthUserCollisionException) {
-                            Toast.makeText(this, "Este correo ya está registrado", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, getString(R.string.email_in_use), Toast.LENGTH_SHORT).show();
 
                         } else {
-                            Toast.makeText(this, "Error en el registro: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, getString(R.string.failed_register) + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
