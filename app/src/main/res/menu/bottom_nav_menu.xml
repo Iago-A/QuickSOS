@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/default_contacts"
+        android:icon="@drawable/common_full_open_on_phone"
+        android:title="Contactos predeterminados" />
+
+    <item
+        android:id="@+id/personal_contacts"
+        android:icon="@drawable/common_full_open_on_phone"
+        android:title="Contactos personales" />
+
+    <item
+        android:id="@+id/more"
+        android:icon="@drawable/common_full_open_on_phone"
+        android:title="Más" />
+</menu>
