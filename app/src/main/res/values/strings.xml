@@ -25,4 +25,7 @@
     <string name="successful_register">Usuario registrado correctamente</string>
     <string name="email_in_use">Este correo ya está registrado</string>
     <string name="failed_register">Error en el registro: </string>
+    <string name="contacts">Contactos</string>
+    <string name="personal_contacts">Contactos personales</string>
+    <string name="others">Otros</string>
 </resources>

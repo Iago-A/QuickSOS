@@ -2,16 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/default_contacts"
-        android:icon="@drawable/common_full_open_on_phone"
-        android:title="Contactos predeterminados" />
+        android:icon="@drawable/baseline_contact_phone_24"
+        android:title="@string/contacts" />
 
     <item
         android:id="@+id/personal_contacts"
-        android:icon="@drawable/common_full_open_on_phone"
-        android:title="Contactos personales" />
+        android:icon="@drawable/baseline_import_contacts_24"
+        android:title="@string/personal_contacts" />
 
     <item
         android:id="@+id/more"
-        android:icon="@drawable/common_full_open_on_phone"
-        android:title="Más" />
+        android:icon="@drawable/baseline_more_horiz_24"
+        android:title="@string/others" />
 </menu>
