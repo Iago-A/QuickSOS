@@ -25,4 +25,7 @@
     <string name="successful_register">User registered successfully</string>
     <string name="email_in_use">This email is already registered</string>
     <string name="failed_register">Registration error: </string>
+    <string name="contacts">Contacts</string>
+    <string name="personal_contacts">Personal contacts</string>
+    <string name="others">Others</string>
 </resources>
