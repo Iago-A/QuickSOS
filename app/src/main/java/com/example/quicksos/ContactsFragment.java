@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class ContactsFragment extends Fragment {
     private RecyclerView recyclerView;
     private ContactsAdapter adapter;
-    private ArrayList<String> contactList;
+    private ArrayList<Contact> contactList;
 
     public ContactsFragment () {
 
@@ -55,11 +55,10 @@ public class ContactsFragment extends Fragment {
                 contactList.clear(); // Clear if it is necessary
 
                 for (DataSnapshot contactSnapshot : snapshot.getChildren()) {
-                    String name = contactSnapshot.child("name").getValue(String.class);
-                    Long number = contactSnapshot.child("number").getValue(Long.class);
+                    Contact contact = contactSnapshot.getValue(Contact.class);
 
-                    if (name != null && number != null) {
-                        contactList.add(name + " - " + number); // Format to show
+                    if (contact != null) {
+                        contactList.add(contact);
                     }
                 }
 
