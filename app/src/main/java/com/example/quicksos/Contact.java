@@ -1,7 +1,8 @@
 package com.example.quicksos;
 
 public class Contact {
-    private String name;
+    private String nameEs;
+    private String nameEn;
     private String number;
     private String url;
 
@@ -9,18 +10,27 @@ public class Contact {
 
     }
 
-    public Contact(String name, String number, String url) {
-        this.name = name;
+    public Contact(String nameEs, String nameEn, String number, String url) {
+        this.nameEs = nameEs;
+        this.nameEn = nameEn;
         this.number = number;
         this.url = url;
     }
 
-    public String getName() {
-        return name;
+    public String getNameEs() {
+        return nameEs;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameEs(String nameEs) {
+        this.nameEs = nameEs;
+    }
+
+    public String getNameEn() {
+        return nameEn;
+    }
+
+    public void setNameEn(String nameEn) {
+        this.nameEn = nameEn;
     }
 
     public String getNumber() {
