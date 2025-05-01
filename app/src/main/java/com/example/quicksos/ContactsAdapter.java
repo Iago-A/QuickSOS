@@ -14,6 +14,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
     private static final String TAG = "ContactsAdapter";
@@ -33,8 +34,17 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ContactsAdapter.ViewHolder holder, int position) {
+        // Obtain the phone's language
+        String language = Locale.getDefault().getLanguage();
+
         Contact contact = contacts.get(position);
-        holder.nameTextView.setText(contact.getName());
+
+        if (language.equals("es")) {
+            holder.nameTextView.setText(contact.getNameEs());
+        } else {
+            holder.nameTextView.setText(contact.getNameEn());
+        }
+
         holder.numberTextView.setText(contact.getNumber());
 
         RequestOptions requestOptions = new RequestOptions()

@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        // Configura el listener para manejar la selección de los íconos del menú
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Carga el fragmento por defecto al inicio (Home)
+        // Load default fragment
         if (savedInstanceState == null) {
             bottomNavigationView.setSelectedItemId(R.id.default_contacts);
         }
