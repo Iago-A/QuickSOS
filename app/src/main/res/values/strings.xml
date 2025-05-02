@@ -28,4 +28,8 @@
     <string name="contacts">Contactos</string>
     <string name="personal_contacts">Contactos personales</string>
     <string name="others">Otros</string>
+    <string name="call_confirmation_title">Confirmar llamada</string>
+    <string name="call_question">¿Estás seguro de que deseas llamar a</string>
+    <string name="accept_call">Llamar</string>
+    <string name="cancel_call">Cancelar</string>
 </resources>
