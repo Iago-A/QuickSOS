@@ -1,6 +1,8 @@
 package com.example.quicksos;
 
-import android.util.Log;
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,15 +38,16 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
     public void onBindViewHolder(@NonNull ContactsAdapter.ViewHolder holder, int position) {
         // Obtain the phone's language
         String language = Locale.getDefault().getLanguage();
+        String contactName = "";
 
         Contact contact = contacts.get(position);
 
         if (language.equals("es")) {
-            holder.nameTextView.setText(contact.getNameEs());
+            contactName = contact.getNameEs();
         } else {
-            holder.nameTextView.setText(contact.getNameEn());
+            contactName = contact.getNameEn();
         }
-
+        holder.nameTextView.setText(contactName);
         holder.numberTextView.setText(contact.getNumber());
 
         RequestOptions requestOptions = new RequestOptions()
@@ -56,6 +59,23 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
                 .load(contact.getUrl())
                 .apply(requestOptions)
                 .into(holder.iconImageView);
+
+        // Listener for write contact number directly in the phone
+        String finalContactName = contactName;
+        holder.itemView.setOnClickListener(v -> {
+            String phoneNumber = contact.getNumber();
+
+            new AlertDialog.Builder(v.getContext())
+                    .setTitle(R.string.call_confirmation_title)
+                    .setMessage(v.getContext().getString(R.string.call_question) + " " + finalContactName + "?")
+                    .setPositiveButton(R.string.accept_call, (dialog, which) -> {
+                        Intent intent = new Intent(Intent.ACTION_DIAL);
+                        intent.setData(Uri.parse("tel:" + phoneNumber));
+                        v.getContext().startActivity(intent);
+                    })
+                    .setNegativeButton(R.string.cancel_call, null)
+                    .show();
+        });
     }
 
     @Override
