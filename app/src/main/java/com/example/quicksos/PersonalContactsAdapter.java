@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,38 +17,28 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
-public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
-    private ArrayList<Contact> contacts;
+public class PersonalContactsAdapter extends RecyclerView.Adapter<PersonalContactsAdapter.ViewHolder> {
+    private ArrayList<PersonalContact> personalContacts;
 
-    public ContactsAdapter(ArrayList<Contact> contacts) {
-        this.contacts = contacts;
+    public PersonalContactsAdapter(ArrayList<PersonalContact> personalContacts) {
+        this.personalContacts = personalContacts;
     }
 
     @NonNull
     @Override
-    public ContactsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public PersonalContactsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.recycler_view_cell, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ContactsAdapter.ViewHolder holder, int position) {
-        // Obtain the phone's language
-        String language = Locale.getDefault().getLanguage();
-        String contactName = "";
+    public void onBindViewHolder(@NonNull PersonalContactsAdapter.ViewHolder holder, int position) {
+        PersonalContact personalContact = personalContacts.get(position);
 
-        Contact contact = contacts.get(position);
-
-        if (language.equals("es")) {
-            contactName = contact.getNameEs();
-        } else {
-            contactName = contact.getNameEn();
-        }
-        holder.nameTextView.setText(contactName);
-        holder.numberTextView.setText(contact.getNumber());
+        holder.nameTextView.setText(personalContact.getName());
+        holder.numberTextView.setText(personalContact.getNumber());
 
         RequestOptions requestOptions = new RequestOptions()
                 .placeholder(R.drawable.loading_image)
@@ -55,14 +46,14 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
                 .diskCacheStrategy(DiskCacheStrategy.ALL);
 
         Glide.with(holder.itemView.getContext())
-                .load(contact.getUrl())
+                .load(personalContact.getUrl())
                 .apply(requestOptions)
                 .into(holder.iconImageView);
 
         // Listener for write contact number directly in the phone
-        String finalContactName = contactName;
+        String finalContactName = personalContact.getName();
         holder.itemView.setOnClickListener(v -> {
-            String phoneNumber = contact.getNumber();
+            String phoneNumber = personalContact.getNumber();
 
             new AlertDialog.Builder(v.getContext())
                     .setTitle(R.string.call_confirmation_title)
@@ -79,7 +70,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return contacts.size();
+        return personalContacts.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -95,4 +86,3 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
         }
     }
 }
-
