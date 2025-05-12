@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class PersonalContactsFragment extends Fragment {
+public class PersonalContactsFragment extends Fragment implements AddContactBottomSheetFragment.AddContactListener {
     private RecyclerView recyclerView;
     private PersonalContactsAdapter adapter;
     private ArrayList<PersonalContact> personalContactList;
@@ -49,7 +50,7 @@ public class PersonalContactsFragment extends Fragment {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("emergencyContacts/user");
 
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 personalContactList.clear(); // Clear if it is necessary
@@ -67,8 +68,16 @@ public class PersonalContactsFragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                // I can place a toast to show the error
+                if (getContext() != null) {
+                    Toast.makeText(getContext(), getString(R.string.error_loading_contacts), Toast.LENGTH_SHORT).show();
+                }
             }
         });
+    }
+
+    @Override
+    public void onContactAdded(PersonalContact personalContact) {
+        // The contacts list will be updated automatically by the ValueEventListener
+        // We don't need to do anything specific here
     }
 }

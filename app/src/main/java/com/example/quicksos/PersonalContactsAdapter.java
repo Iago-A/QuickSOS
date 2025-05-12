@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -49,8 +49,8 @@ public class PersonalContactsAdapter extends RecyclerView.Adapter<RecyclerView.V
             PersonalContact personalContact = personalContacts.get(position);
             ViewHolder contactHolder = (ViewHolder) holder;
 
-            contactHolder.nameTextView.setText(personalContact.getName());
-            contactHolder.numberTextView.setText(personalContact.getNumber());
+            contactHolder.contactNameTextView.setText(personalContact.getName());
+            contactHolder.contactNumberTextView.setText(personalContact.getNumber());
 
             RequestOptions requestOptions = new RequestOptions()
                     .placeholder(R.drawable.loading_image)
@@ -60,7 +60,7 @@ public class PersonalContactsAdapter extends RecyclerView.Adapter<RecyclerView.V
             Glide.with(holder.itemView.getContext())
                     .load(personalContact.getUrl())
                     .apply(requestOptions)
-                    .into(contactHolder.iconImageView);
+                    .into(contactHolder.contactIconImageView);
 
             // Listener for write contact number directly in the phone
             String finalContactName = personalContact.getName();
@@ -81,9 +81,9 @@ public class PersonalContactsAdapter extends RecyclerView.Adapter<RecyclerView.V
         } else {
             if (holder instanceof AddButtonViewHolder) {
                 holder.itemView.setOnClickListener(v -> {
-//                Intent intent = new Intent(v.getContext(), AddContactActivity.class);
-//                v.getContext().startActivity(intent);
-                    Toast.makeText(v.getContext(), "Añadir contacto", Toast.LENGTH_SHORT).show();
+                    FragmentActivity activity = (FragmentActivity) v.getContext();
+                    AddContactBottomSheetFragment bottomSheet = new AddContactBottomSheetFragment();
+                    bottomSheet.show(activity.getSupportFragmentManager(), "AddContactBottomSheet");
                 });
             }
         }
@@ -104,22 +104,26 @@ public class PersonalContactsAdapter extends RecyclerView.Adapter<RecyclerView.V
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView nameTextView;
-        public TextView numberTextView;
-        public ImageView iconImageView;
+        public TextView contactNameTextView;
+        public TextView contactNumberTextView;
+        public ImageView contactIconImageView;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            nameTextView = itemView.findViewById(R.id.contact_name_text);
-            numberTextView = itemView.findViewById(R.id.contact_number_text);
-            iconImageView = itemView.findViewById(R.id.contact_icon);
+            contactNameTextView = itemView.findViewById(R.id.contactNameTextView);
+            contactNumberTextView = itemView.findViewById(R.id.contactNumberTextView);
+            contactIconImageView = itemView.findViewById(R.id.contactIconImageView);
         }
     }
 
     public static class AddButtonViewHolder extends RecyclerView.ViewHolder {
+        public TextView addContactTextView;
+        public ImageView addIconImageView;
+
         public AddButtonViewHolder(View itemView) {
             super(itemView);
-            // Reference views??
+            addContactTextView = itemView.findViewById(R.id.addContactTextView);
+            addIconImageView = itemView.findViewById(R.id.addIconImageView);
         }
     }
 }

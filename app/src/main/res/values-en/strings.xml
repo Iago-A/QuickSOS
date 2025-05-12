@@ -32,4 +32,16 @@
     <string name="call_question">Are you sure you want to call</string>
     <string name="accept_call">Call</string>
     <string name="cancel_call">Cancel</string>
+    <string name="add_contact">Add contact</string>
+    <string name="name_required">Name is required</string>
+    <string name="number_required">Phone number is required</string>
+    <string name="successful_contact_added">Contact added successfully</string>
+    <string name="failed_contact_added">Failed to add contact</string>
+    <string name="add_new_contact">Add new contact</string>
+    <string name="contact_name">Contact Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="image_url_optional">Image URL (Optional)</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="error_loading_contacts">Error loading contacts</string>
 </resources>
