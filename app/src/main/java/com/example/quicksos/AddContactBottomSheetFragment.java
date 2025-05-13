@@ -86,6 +86,7 @@ public class AddContactBottomSheetFragment extends BottomSheetDialogFragment {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference contactsRef = database.getReference("emergencyContacts")
+                .child("user")
                 .child(userId);
 
         String contactId = contactsRef.push().getKey();
