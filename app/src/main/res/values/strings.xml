@@ -44,4 +44,10 @@
     <string name="save">Guardar</string>
     <string name="cancel">Cancelar</string>
     <string name="error_loading_contacts">Error al cargar los contactos</string>
+    <string name="delete_contact_title">Eliminar contacto</string>
+    <string name="delete_contact_message">¿Estás seguro de que quieres eliminar el contacto</string>
+    <string name="delete">Eliminar</string>
+    <string name="successfully_contact_deleted">Contacto eliminado con éxito</string>
+    <string name="failed_contact_deleted">Error al eliminar el contacto</string>
+    <string name="instructions_delete">Deslizar a la derecha para eliminar contacto</string>
 </resources>

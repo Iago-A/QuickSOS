@@ -44,4 +44,10 @@
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
     <string name="error_loading_contacts">Error loading contacts</string>
+    <string name="delete_contact_title">Delete contact</string>
+    <string name="delete_contact_message">Are you sure you want to delete the contact</string>
+    <string name="delete">Delete</string>
+    <string name="successfully_contact_deleted">Contact deleted successfully</string>
+    <string name="failed_contact_deleted">Error deleting contact</string>
+    <string name="instructions_delete">Swipe right to delete contact</string>
 </resources>
