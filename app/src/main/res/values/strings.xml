@@ -32,4 +32,22 @@
     <string name="call_question">¿Estás seguro de que deseas llamar a</string>
     <string name="accept_call">Llamar</string>
     <string name="cancel_call">Cancelar</string>
+    <string name="add_contact">Añadir contacto</string>
+    <string name="name_required">Se necesita un nombre de contacto</string>
+    <string name="number_required">Se necesita un número de contacto</string>
+    <string name="successful_contact_added">Contacto añadido con éxito</string>
+    <string name="failed_contact_added">Error al añadir contacto</string>
+    <string name="add_new_contact">Añadir nuevo contacto</string>
+    <string name="contact_name">Nombre contacto</string>
+    <string name="phone_number">Número contacto</string>
+    <string name="image_url_optional">URL imagen (Opcional)</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="error_loading_contacts">Error al cargar los contactos</string>
+    <string name="delete_contact_title">Eliminar contacto</string>
+    <string name="delete_contact_message">¿Estás seguro de que quieres eliminar el contacto</string>
+    <string name="delete">Eliminar</string>
+    <string name="successfully_contact_deleted">Contacto eliminado con éxito</string>
+    <string name="failed_contact_deleted">Error al eliminar el contacto</string>
+    <string name="instructions_delete">Deslizar a la derecha para eliminar contacto</string>
 </resources>

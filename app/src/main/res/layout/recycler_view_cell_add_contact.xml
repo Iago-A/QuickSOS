@@ -6,34 +6,25 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/contactIconImageView"
+        android:id="@+id/addIconImageView"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:src="@drawable/baseline_add_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="16dp" />
 
     <TextView
-        android:id="@+id/contactNameTextView"
+        android:id="@+id/addContactTextView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Nombre"
+        android:layout_height="match_parent"
+        android:text="@string/add_contact"
         android:textStyle="bold"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@id/contactIconImageView"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/addIconImageView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/addIconImageView"
+        app:layout_constraintBottom_toBottomOf="@id/addIconImageView"
         android:layout_margin="16dp" />
-
-    <TextView
-        android:id="@+id/contactNumberTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Número"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/contactNameTextView"
-        app:layout_constraintTop_toBottomOf="@id/contactNameTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="2dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

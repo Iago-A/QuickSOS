@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
-    private static final String TAG = "ContactsAdapter";
     private ArrayList<Contact> contacts;
 
     public ContactsAdapter(ArrayList<Contact> contacts) {
@@ -47,8 +46,8 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
         } else {
             contactName = contact.getNameEn();
         }
-        holder.nameTextView.setText(contactName);
-        holder.numberTextView.setText(contact.getNumber());
+        holder.contactNameTextView.setText(contactName);
+        holder.contactNumberTextView.setText(contact.getNumber());
 
         RequestOptions requestOptions = new RequestOptions()
                 .placeholder(R.drawable.loading_image)
@@ -58,7 +57,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
         Glide.with(holder.itemView.getContext())
                 .load(contact.getUrl())
                 .apply(requestOptions)
-                .into(holder.iconImageView);
+                .into(holder.contactIconImageView);
 
         // Listener for write contact number directly in the phone
         String finalContactName = contactName;
@@ -84,15 +83,15 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView nameTextView;
-        public TextView numberTextView;
-        public ImageView iconImageView;
+        public TextView contactNameTextView;
+        public TextView contactNumberTextView;
+        public ImageView contactIconImageView;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            nameTextView = itemView.findViewById(R.id.contact_name_text);
-            numberTextView = itemView.findViewById(R.id.contact_number_text);
-            iconImageView = itemView.findViewById(R.id.contact_icon);
+            contactNameTextView = itemView.findViewById(R.id.contactNameTextView);
+            contactNumberTextView = itemView.findViewById(R.id.contactNumberTextView);
+            contactIconImageView = itemView.findViewById(R.id.contactIconImageView);
         }
     }
 }
