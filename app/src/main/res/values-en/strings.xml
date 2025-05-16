@@ -50,4 +50,14 @@
     <string name="successfully_contact_deleted">Contact deleted successfully</string>
     <string name="failed_contact_deleted">Error deleting contact</string>
     <string name="instructions_delete">Swipe right to delete contact</string>
+    <string name="account">Account</string>
+    <string name="change_password">Change password</string>
+    <string name="logout">Log out</string>
+    <string name="danger_zone">Danger zone</string>
+    <string name="delete_account">Delete account</string>
+    <string name="delete_account_confirmation">Are you sure you want to delete your account? This action is irreversible and all your data will be deleted.</string>
+    <string name="successfully_account_deleted">Account successfully deleted</string>
+    <string name="failed_account_deleted">Failed to delete account</string>
+    <string name="app_version">Version %s</string>
+    <string name="app_version_format">Version %s</string>
 </resources>

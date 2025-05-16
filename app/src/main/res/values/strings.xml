@@ -50,4 +50,14 @@
     <string name="successfully_contact_deleted">Contacto eliminado con éxito</string>
     <string name="failed_contact_deleted">Error al eliminar el contacto</string>
     <string name="instructions_delete">Deslizar a la derecha para eliminar contacto</string>
+    <string name="account">Cuenta</string>
+    <string name="change_password">Cambiar contraseña</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="danger_zone">Zona de peligro</string>
+    <string name="delete_account">Eliminar cuenta</string>
+    <string name="delete_account_confirmation">¿Estás seguro de que quieres eliminar tu cuenta? Esta acción es irreversible y se eliminarán todos tus datos.</string>
+    <string name="successfully_account_deleted">Cuenta eliminada correctamente</string>
+    <string name="failed_account_deleted">Error al eliminar la cuenta</string>
+    <string name="app_version">Versión %s</string>
+    <string name="app_version_format">Versión %s</string>
 </resources>
