@@ -55,9 +55,12 @@
     <string name="logout">Cerrar sesión</string>
     <string name="danger_zone">Zona de peligro</string>
     <string name="delete_account">Eliminar cuenta</string>
-    <string name="delete_account_confirmation">¿Estás seguro de que quieres eliminar tu cuenta? Esta acción es irreversible y se eliminarán todos tus datos.</string>
+    <string name="delete_account_confirmation">¿Estás seguro de que quieres eliminar tu cuenta? Esta acción es irreversible y se eliminarán todos tus datos.\nEscribe \"Borrar mi cuenta\" para eliminar.</string>
     <string name="successfully_account_deleted">Cuenta eliminada correctamente</string>
     <string name="failed_account_deleted">Error al eliminar la cuenta</string>
     <string name="app_version">Versión %s</string>
     <string name="app_version_format">Versión %s</string>
+    <string name="delete_account_type_confirmation">Escribe la confirmación</string>
+    <string name="delete_account_confirmation_phrase">Borrar mi cuenta</string>
+    <string name="delete_account_confirmation_error">La frase no coincide. Por favor, escribe exactamente \"Borrar mi cuenta\"</string>
 </resources>

@@ -55,9 +55,12 @@
     <string name="logout">Log out</string>
     <string name="danger_zone">Danger zone</string>
     <string name="delete_account">Delete account</string>
-    <string name="delete_account_confirmation">Are you sure you want to delete your account? This action is irreversible and all your data will be deleted.</string>
+    <string name="delete_account_confirmation">Are you sure you want to delete your account? This action is irreversible and all your data will be deleted.\nType \"Delete my account\" to delete.</string>
     <string name="successfully_account_deleted">Account successfully deleted</string>
     <string name="failed_account_deleted">Failed to delete account</string>
     <string name="app_version">Version %s</string>
     <string name="app_version_format">Version %s</string>
+    <string name="delete_account_type_confirmation">Type confirmation</string>
+    <string name="delete_account_confirmation_phrase">Delete my account</string>
+    <string name="delete_account_confirmation_error">Phrase doesn\'t match. Please type exactly \"Delete my account\"</string>
 </resources>
