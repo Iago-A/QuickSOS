@@ -4,7 +4,7 @@
     <string name="login">Iniciar sesión</string>
     <string name="email_hint">Correo electrónico</string>
     <string name="password_hint">Contraseña</string>
-    <string name="repeat_password_hint">Confirmar contraseña</string>
+    <string name="repeat_password_hint">Repetir contraseña</string>
     <string name="account_question">¿Aún no tienes una cuenta?</string>
     <string name="create_account">Crear cuenta</string>
     <string name="email_content_description">Campo para escribir el correo electrónico</string>
@@ -63,4 +63,13 @@
     <string name="delete_account_type_confirmation">Escribe la confirmación</string>
     <string name="delete_account_confirmation_phrase">Borrar mi cuenta</string>
     <string name="delete_account_confirmation_error">La frase no coincide. Por favor, escribe exactamente \"Borrar mi cuenta\"</string>
+    <string name="current_password_hint">Contraseña actual</string>
+    <string name="new_password_hint">Nueva contraseña</string>
+    <string name="repeat_new_password_hint">Repetir nueva contraseña</string>
+    <string name="change">Cambiar</string>
+    <string name="current_password_empty">La contraseña actual es obligatoria</string>
+    <string name="incorrect_password">Contraseña incorrecta</string>
+    <string name="successfully_password_changed">Contraseña cambiada correctamente</string>
+    <string name="failed_password_changed">Error al cambiar la contraseña</string>
+    <string name="user_not_found">Usuario no encontrado</string>
 </resources>

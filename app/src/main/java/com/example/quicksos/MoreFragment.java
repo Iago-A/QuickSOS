@@ -21,7 +21,7 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MoreFragment extends Fragment {
+public class MoreFragment extends Fragment implements ChangePasswordBottomSheetFragment.OnPasswordChangedListener {
 
     public MoreFragment() {
 
@@ -34,7 +34,8 @@ public class MoreFragment extends Fragment {
 
         // Listeners configuration
         view.findViewById(R.id.changePasswordLayout).setOnClickListener(v -> {
-            // Implements code to change password
+            ChangePasswordBottomSheetFragment bottomSheet = new ChangePasswordBottomSheetFragment();
+            bottomSheet.show(getChildFragmentManager(), "ChangePasswordBottomSheet");
         });
 
         view.findViewById(R.id.logoutLayout).setOnClickListener(v -> {
@@ -115,5 +116,10 @@ public class MoreFragment extends Fragment {
                 TypedValue.COMPLEX_UNIT_DIP,
                 dp,
                 getResources().getDisplayMetrics());
+    }
+
+    @Override
+    public void onPasswordChanged() {
+        // We don't need to do anything specific here
     }
 }
