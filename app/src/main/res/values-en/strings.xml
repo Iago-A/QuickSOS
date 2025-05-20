@@ -4,7 +4,7 @@
     <string name="login">Log In</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
-    <string name="repeat_password_hint">Confirm Password</string>
+    <string name="repeat_password_hint">Repeat password</string>
     <string name="account_question">Don\'t have an account yet?</string>
     <string name="create_account">Create Account</string>
     <string name="email_content_description">Field to enter email</string>
@@ -55,9 +55,21 @@
     <string name="logout">Log out</string>
     <string name="danger_zone">Danger zone</string>
     <string name="delete_account">Delete account</string>
-    <string name="delete_account_confirmation">Are you sure you want to delete your account? This action is irreversible and all your data will be deleted.</string>
+    <string name="delete_account_confirmation">Are you sure you want to delete your account? This action is irreversible and all your data will be deleted.\nType \"Delete my account\" to delete.</string>
     <string name="successfully_account_deleted">Account successfully deleted</string>
     <string name="failed_account_deleted">Failed to delete account</string>
     <string name="app_version">Version %s</string>
     <string name="app_version_format">Version %s</string>
+    <string name="delete_account_type_confirmation">Type confirmation</string>
+    <string name="delete_account_confirmation_phrase">Delete my account</string>
+    <string name="delete_account_confirmation_error">Phrase doesn\'t match. Please type exactly \"Delete my account\"</string>
+    <string name="current_password_hint">Current password</string>
+    <string name="new_password_hint">New password</string>
+    <string name="repeat_new_password_hint">Confirm new password</string>
+    <string name="change">Change</string>
+    <string name="current_password_empty">Current password is required</string>
+    <string name="incorrect_password">Incorrect password</string>
+    <string name="successfully_password_changed">Password successfully changed</string>
+    <string name="failed_password_changed">Failed to change password</string>
+    <string name="user_not_found">User not found</string>
 </resources>
