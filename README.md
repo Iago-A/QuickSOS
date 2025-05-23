@@ -29,9 +29,7 @@ De forma muy sencilla se puede:
 
 ## :computer: Estado del proyecto
 
-<h4>
-:construction: Proyecto en construcción :construction:
-</h4>
+:construction: **Proyecto en construcción** :construction:
 
 ## :heavy_check_mark: Tecnologías utilizadas:
 
