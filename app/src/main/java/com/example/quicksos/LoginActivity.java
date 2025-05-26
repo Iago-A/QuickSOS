@@ -1,6 +1,7 @@
 package com.example.quicksos;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.widget.Button;
@@ -16,10 +17,17 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Button loginButton;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Initialize SharedPreferences
+        sharedPreferences = getSharedPreferences("QuickSOSPrefs", MODE_PRIVATE);
+
+        // Check if user is in guest mode
+        boolean isGuestMode = sharedPreferences.getBoolean("isGuestMode", false);
 
         // If the user was logged before, it goes directly to MainActivity
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
@@ -41,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.loginButton);
         TextView questionTextView = findViewById(R.id.questionTextView);
         Button registerButton = findViewById(R.id.registerButton);
+        Button guestButton = findViewById(R.id.guestButton);
 
         // Establish accessibility descriptions
         welcomeTextView.setContentDescription(getString(R.string.welcome));
@@ -50,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setContentDescription(getString(R.string.login));
         questionTextView.setContentDescription(getString(R.string.account_question));
         registerButton.setContentDescription(getString(R.string.create_account));
+        guestButton.setContentDescription(getString(R.string.continue_as_guest));
 
         // Buttons click configuration
         loginButton.setOnClickListener(v -> {
@@ -62,6 +72,10 @@ public class LoginActivity extends AppCompatActivity {
         registerButton.setOnClickListener(v -> {
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(intent);
+        });
+
+        guestButton.setOnClickListener(v -> {
+            enterGuestMode();
         });
     }
 
@@ -93,12 +107,31 @@ public class LoginActivity extends AppCompatActivity {
                     loginButton.setEnabled(true);
 
                     if (task.isSuccessful()) {
+                        // Clear guest mode and set authenticated mode
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putBoolean("isGuestMode", false);
+                        editor.putBoolean("isAuthenticated", true);
+                        editor.apply();
+
                         Toast.makeText(LoginActivity.this, getString(R.string.successful_login), Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
+                        finish();
                     } else {
                         Toast.makeText(LoginActivity.this, getString(R.string.failed_login), Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    private void enterGuestMode() {
+        // Save guest mode state in SharedPreferences
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("isGuestMode", true);
+        editor.putBoolean("isAuthenticated", false);
+        editor.apply();
+
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

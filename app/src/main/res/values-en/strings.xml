@@ -72,4 +72,10 @@
     <string name="successfully_password_changed">Password successfully changed</string>
     <string name="failed_password_changed">Failed to change password</string>
     <string name="user_not_found">User not found</string>
+    <string name="continue_as_guest">Continue as guest</string>
+    <string name="guest_personal_contacts_title">Account required</string>
+    <string name="guest_personal_contacts_message">To add and manage your personal emergency contacts, you need to create an account or sign in.\n\nIt\'s quick and free!</string>
+    <string name="guest_mode_title">Guest mode</string>
+    <string name="guest_mode_message">You are browsing as a guest. You can view the default emergency contacts, but to access all features you need an account.</string>
+    <string name="exit_guest_mode">Exit guest mode</string>
 </resources>

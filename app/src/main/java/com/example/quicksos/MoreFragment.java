@@ -2,6 +2,7 @@ package com.example.quicksos;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MoreFragment extends Fragment implements ChangePasswordBottomSheetFragment.OnPasswordChangedListener {
+    private boolean isGuestMode = false;
 
     public MoreFragment() {
 
@@ -30,15 +32,58 @@ public class MoreFragment extends Fragment implements ChangePasswordBottomSheetF
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_more, container, false);
+        // Check if we're in guest mode from arguments
+        if (getArguments() != null) {
+            isGuestMode = getArguments().getBoolean("isGuestMode", false);
+        }
 
-        // Listeners configuration
+        View view;
+
+        if (isGuestMode) {
+            view = inflater.inflate(R.layout.fragment_more_guest, container, false);
+            setupGuestMode(view);
+        } else {
+            view = inflater.inflate(R.layout.fragment_more, container, false);
+            setupAuthenticatedMode(view);
+        }
+
+        // Configure app version for both modes
+        setupAppVersion(view);
+
+        return view;
+    }
+
+    private void setupGuestMode(View view) {
+        view.findViewById(R.id.exitGuestButton).setOnClickListener(v -> {
+            // Clear guest mode and return to login
+            SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("QuickSOSPrefs", requireActivity().MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("isGuestMode", false);
+            editor.putBoolean("isAuthenticated", false);
+            editor.apply();
+
+            Intent intent = new Intent(requireActivity(), LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            requireActivity().finish();
+        });
+    }
+
+    private void setupAuthenticatedMode(View view) {
+        // Listeners configuration for authenticated users
         view.findViewById(R.id.changePasswordLayout).setOnClickListener(v -> {
             ChangePasswordBottomSheetFragment bottomSheet = new ChangePasswordBottomSheetFragment();
             bottomSheet.show(getChildFragmentManager(), "ChangePasswordBottomSheet");
         });
 
         view.findViewById(R.id.logoutLayout).setOnClickListener(v -> {
+            // Clear SharedPreferences when logging out
+            SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("QuickSOSPrefs", requireActivity().MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("isGuestMode", false);
+            editor.putBoolean("isAuthenticated", false);
+            editor.apply();
+
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(getActivity(), LoginActivity.class));
             getActivity().finish();
@@ -47,8 +92,9 @@ public class MoreFragment extends Fragment implements ChangePasswordBottomSheetF
         view.findViewById(R.id.deleteAccountLayout).setOnClickListener(v -> {
             showDeleteAccountConfirmationDialog();
         });
+    }
 
-        // Configurate app version
+    private void setupAppVersion(View view) {
         TextView versionTextView = view.findViewById(R.id.versionTextView);
         try {
             PackageInfo packageInfo = getActivity().getPackageManager().getPackageInfo(getActivity().getPackageName(), 0);
@@ -56,8 +102,6 @@ public class MoreFragment extends Fragment implements ChangePasswordBottomSheetF
         } catch (PackageManager.NameNotFoundException e) {
             versionTextView.setVisibility(View.GONE);
         }
-
-        return view;
     }
 
     private void showDeleteAccountConfirmationDialog() {
@@ -67,8 +111,7 @@ public class MoreFragment extends Fragment implements ChangePasswordBottomSheetF
 
         // Configurate EditText style
         input.setBackgroundResource(R.drawable.edit_text_background);
-        input.setPadding(dpToPx(12), dpToPx(12), dpToPx(12), dpToPx(12)
-        );
+        input.setPadding(dpToPx(12), dpToPx(12), dpToPx(12), dpToPx(12));
         input.setHintTextColor(getResources().getColor(R.color.colorHint, null));
 
         // Create the layout to contain the EditText
