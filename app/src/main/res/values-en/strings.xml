@@ -78,4 +78,9 @@
     <string name="guest_mode_title">Guest mode</string>
     <string name="guest_mode_message">You are browsing as a guest. You can view the default emergency contacts, but to access all features you need an account.</string>
     <string name="exit_guest_mode">Exit guest mode</string>
+    <string name="edit_contact">Edit contact</string>
+    <string name="update">Update</string>
+    <string name="successful_contact_updated">Contact updated successfully</string>
+    <string name="failed_contact_updated">Failed to update contact</string>
+    <string name="instructions_update">Long press to update contact</string>
 </resources>

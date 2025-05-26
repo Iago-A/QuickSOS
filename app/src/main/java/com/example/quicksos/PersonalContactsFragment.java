@@ -35,6 +35,7 @@ public class PersonalContactsFragment extends Fragment implements AddContactBott
     private DatabaseReference reference;
     private String userId;
     private TextView deleteTextView;
+    private TextView updateTextView;
 
     public PersonalContactsFragment() {
 
@@ -54,9 +55,10 @@ public class PersonalContactsFragment extends Fragment implements AddContactBott
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         deleteTextView = view.findViewById(R.id.deleteTextView);
+        updateTextView = view.findViewById(R.id.updateTextView);
 
         personalContactList = new ArrayList<>();
-        adapter = new PersonalContactsAdapter(personalContactList);
+        adapter = new PersonalContactsAdapter(personalContactList, this::onContactLongPressed);
         recyclerView.setAdapter(adapter);
 
         setupSwipeToDelete();
@@ -64,6 +66,11 @@ public class PersonalContactsFragment extends Fragment implements AddContactBott
         loadPersonalContactsFromFirebase();
 
         return view;
+    }
+
+    private void onContactLongPressed(PersonalContact contact) {
+        AddContactBottomSheetFragment bottomSheet = AddContactBottomSheetFragment.newInstanceForEdit(contact);
+        bottomSheet.show(getChildFragmentManager(), "EditContactBottomSheet");
     }
 
     private void setupSwipeToDelete() {
@@ -231,13 +238,21 @@ public class PersonalContactsFragment extends Fragment implements AddContactBott
     private void updateInstructionsVisibility() {
         if (personalContactList.size() > 0) {
             deleteTextView.setVisibility(View.VISIBLE);
+            updateTextView.setVisibility(View.VISIBLE);
         } else {
             deleteTextView.setVisibility(View.GONE);
+            updateTextView.setVisibility(View.GONE);
         }
     }
 
     @Override
     public void onContactAdded(PersonalContact personalContact) {
+        // The contacts list will be updated automatically by the ValueEventListener
+        // We don't need to do anything specific here
+    }
+
+    @Override
+    public void onContactUpdated(PersonalContact personalContact) {
         // The contacts list will be updated automatically by the ValueEventListener
         // We don't need to do anything specific here
     }
