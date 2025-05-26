@@ -78,4 +78,9 @@
     <string name="guest_mode_title">Modo invitado</string>
     <string name="guest_mode_message">Estás navegando como invitado. Puedes ver los contactos de emergencia predeterminados, pero para acceder a todas las funcionalidades necesitas una cuenta.</string>
     <string name="exit_guest_mode">Salir del modo invitado</string>
+    <string name="edit_contact">Editar contacto</string>
+    <string name="update">Actualizar</string>
+    <string name="successful_contact_updated">Contacto actualizado correctamente</string>
+    <string name="failed_contact_updated">Error al actualizar contacto</string>
+    <string name="instructions_update">Mantener pulsado para actualizar contacto</string>
 </resources>

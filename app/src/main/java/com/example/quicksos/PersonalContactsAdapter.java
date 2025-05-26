@@ -21,12 +21,23 @@ import java.util.ArrayList;
 
 public class PersonalContactsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<PersonalContact> personalContacts;
+    private OnContactLongPressListener longPressListener;
 
     private static final int TYPE_CONTACT = 0;
     private static final int TYPE_ADD_BUTTON = 1;
 
+    // Interface for long press callback
+    public interface OnContactLongPressListener {
+        void onContactLongPressed(PersonalContact contact);
+    }
+
     public PersonalContactsAdapter(ArrayList<PersonalContact> personalContacts) {
         this.personalContacts = personalContacts;
+    }
+
+    public PersonalContactsAdapter(ArrayList<PersonalContact> personalContacts, OnContactLongPressListener longPressListener) {
+        this.personalContacts = personalContacts;
+        this.longPressListener = longPressListener;
     }
 
     @NonNull
@@ -62,7 +73,7 @@ public class PersonalContactsAdapter extends RecyclerView.Adapter<RecyclerView.V
                     .apply(requestOptions)
                     .into(contactHolder.contactIconImageView);
 
-            // Listener for write contact number directly in the phone
+            // Regular click listener for calling
             String finalContactName = personalContact.getName();
             holder.itemView.setOnClickListener(v -> {
                 String phoneNumber = personalContact.getNumber();
@@ -78,11 +89,20 @@ public class PersonalContactsAdapter extends RecyclerView.Adapter<RecyclerView.V
                         .setNegativeButton(R.string.cancel_call, null)
                         .show();
             });
+
+            // Long press listener for editing
+            holder.itemView.setOnLongClickListener(v -> {
+                if (longPressListener != null) {
+                    longPressListener.onContactLongPressed(personalContact);
+                }
+                return true; // Consume the long press event
+            });
+
         } else {
             if (holder instanceof AddButtonViewHolder) {
                 holder.itemView.setOnClickListener(v -> {
                     FragmentActivity activity = (FragmentActivity) v.getContext();
-                    AddContactBottomSheetFragment bottomSheet = new AddContactBottomSheetFragment();
+                    AddContactBottomSheetFragment bottomSheet = AddContactBottomSheetFragment.newInstanceForAdd();
                     bottomSheet.show(activity.getSupportFragmentManager(), "AddContactBottomSheet");
                 });
             }
