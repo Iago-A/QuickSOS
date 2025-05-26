@@ -72,4 +72,10 @@
     <string name="successfully_password_changed">Contraseña cambiada correctamente</string>
     <string name="failed_password_changed">Error al cambiar la contraseña</string>
     <string name="user_not_found">Usuario no encontrado</string>
+    <string name="continue_as_guest">Continuar como invitado</string>
+    <string name="guest_personal_contacts_title">Cuenta requerida</string>
+    <string name="guest_personal_contacts_message">Para añadir y gestionar tus contactos personales de emergencia, necesitas crear una cuenta o iniciar sesión.\n\n¡Es rápido y gratuito!</string>
+    <string name="guest_mode_title">Modo invitado</string>
+    <string name="guest_mode_message">Estás navegando como invitado. Puedes ver los contactos de emergencia predeterminados, pero para acceder a todas las funcionalidades necesitas una cuenta.</string>
+    <string name="exit_guest_mode">Salir del modo invitado</string>
 </resources>
