@@ -6,4 +6,6 @@
     </style>
 
     <style name="Theme.QuickSOS" parent="Base.Theme.QuickSOS" />
+    <style name="Theme.SplashScreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    </style>
 </resources>
