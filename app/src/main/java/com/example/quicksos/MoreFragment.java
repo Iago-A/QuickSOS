@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -112,7 +113,7 @@ public class MoreFragment extends Fragment implements ChangePasswordBottomSheetF
         // Configurate EditText style
         input.setBackgroundResource(R.drawable.edit_text_background);
         input.setPadding(dpToPx(12), dpToPx(12), dpToPx(12), dpToPx(12));
-        input.setHintTextColor(getResources().getColor(R.color.colorHint, null));
+        input.setHintTextColor(getResources().getColor(R.color.color_hint, null));
 
         // Create the layout to contain the EditText
         LinearLayout container = new LinearLayout(requireContext());
@@ -129,7 +130,7 @@ public class MoreFragment extends Fragment implements ChangePasswordBottomSheetF
                 .setNegativeButton(R.string.cancel, null);
 
         // Create and show dialog
-        androidx.appcompat.app.AlertDialog dialog = builder.create();
+        AlertDialog dialog = builder.create();
         dialog.show();
 
         // Overwrite the positive button to validate the entry before proceeding

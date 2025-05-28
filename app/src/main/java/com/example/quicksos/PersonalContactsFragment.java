@@ -122,7 +122,7 @@ public class PersonalContactsFragment extends Fragment implements AddContactBott
                     if (alpha > 0) {
                         // Red background with calculated alpha
                         Paint paint = new Paint();
-                        int color = ContextCompat.getColor(requireContext(), R.color.colorDelete);
+                        int color = ContextCompat.getColor(requireContext(), R.color.color_delete);
                         paint.setColor(color);
                         paint.setAlpha((int) (alpha * 255)); // Set transparency
 
