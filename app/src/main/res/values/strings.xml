@@ -26,8 +26,8 @@
     <string name="email_in_use">Este correo ya está registrado</string>
     <string name="failed_register">Error en el registro: </string>
     <string name="contacts">Contactos</string>
-    <string name="personal_contacts">Contactos personales</string>
-    <string name="others">Otros</string>
+    <string name="personal_contacts">Personales</string>
+    <string name="others">Más</string>
     <string name="call_confirmation_title">Confirmar llamada</string>
     <string name="call_question">¿Estás seguro de que deseas llamar a</string>
     <string name="accept_call">Llamar</string>
