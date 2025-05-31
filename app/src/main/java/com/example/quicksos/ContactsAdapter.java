@@ -41,11 +41,39 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
 
         Contact contact = contacts.get(position);
 
-        if (language.equals("es")) {
-            contactName = contact.getNameEs();
-        } else {
-            contactName = contact.getNameEn();
+        switch (language) {
+            case "es":
+                contactName = contact.getNameEs();
+                break;
+            case "en":
+                contactName = contact.getNameEn();
+                break;
+            case "pt":
+                contactName = contact.getNamePt();
+                break;
+            case "fr":
+                contactName = contact.getNameFr();
+                break;
+            case "it":
+                contactName = contact.getNameIt();
+                break;
+            case "de":
+                contactName = contact.getNameDe();
+                break;
+            case "gl":
+                contactName = contact.getNameGl();
+                break;
+            case "ca":
+                contactName = contact.getNameCa();
+                break;
+            case "eu":
+                contactName = contact.getNameEu();
+                break;
+            default:
+                contactName = contact.getNameEn();
+                break;
         }
+
         holder.contactNameTextView.setText(contactName);
         holder.contactNumberTextView.setText(contact.getNumber());
 
