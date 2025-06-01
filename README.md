@@ -32,7 +32,7 @@ De forma muy sencilla se puede:
 
 ## :computer: Estado del proyecto
 
-:construction: **Proyecto en construcción** :construction:
+:confetti_ball: **Proyecto finalizado** :confetti_ball:
 
 ## :heavy_check_mark: Tecnologías utilizadas:
 
