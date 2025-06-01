@@ -6,7 +6,7 @@ QuickSOS es una aplicación para móviles Android, desarrollada como proyecto de
 
 La aplicación ha sido desarrollada utilizando Android como plataforma principal, con Firebase como backend para la gestión de datos. Está pensada para cualquier usuario con un dispositivo Android y conexión a internet. Entre sus funciones principales se incluye la marcación directa de números de emergencia desde la propia app y la posibilidad de añadir contactos personalizados de interés para cada usuario.
 
-En cuanto al ámbito lingüístico, actualmente ofrece soporte en español e inglés, y se prevé una fácil ampliación a otros idiomas como portugués, francés o italiano. A largo plazo, también se contempla la incorporación de teléfonos de emergencia de otros países, lo que abriría la posibilidad de uso a nivel internacional.
+En cuanto al ámbito lingüístico, ofrece soporte en Español, Gallego, Euskera, Catalán, Inglés, Portugués, Francés, Alemanán e Italiano. A largo plazo, también se podría incorporar teléfonos de emergencia de otros países, lo que abriría la posibilidad de uso a nivel internacional.
 
 ## :iphone: Funcionalidades de la aplicación
 - `Inicio de sesión`: Los usuarios pueden iniciar sesión con su cuenta para poder ver todos los contactos predeterminados y personales guardados en la base de datos de Firebase. Una vez iniciada sesión, no habrá que volver a hacerlo si se cierra la app mientras no se cierre la sesión por el propio usuario.
@@ -18,14 +18,17 @@ En cuanto al ámbito lingüístico, actualmente ofrece soporte en español e ing
 - `Visualizar contactos personales`: La segunda funcionalidad más importante de la app. Si la lista principal no contiene algún contacto por ser de carácter más local o cualquier otro motivo, aquí cada usuario puede disponer de distintos contactos propios que solo podrá ver él (como el número del centro de salud designado, número de un hospital veterinario de urgencias local...)  
 De forma muy sencilla se puede:
   - Agregar un nuevo contacto.
+  - Modificar datos de un contacto existente.
   - Eliminar contacto si fue creado previamente.
     
 - `Configuración`: Este apartado abarca distintas funciones útiles:
   - Cambiar de contraseña.
   - Cerrar sesión.
   - Eliminar cuenta.
+ 
+- `Inicio se sesión como invitado`: También se permite entrar sin necesidad de crear una cuenta, pero solo se puede visualizar la lista de contactos predeterminados.
 
-- `Soporte de lenguajes`: La propia app cambiará de Español a Inglés dependiendo de cual sea el lenguaje definido del propio smartphone.  
+- `Soporte de lenguajes`: La propia app cambiará de Español a Inglés dependiendo de cual sea el lenguaje definido de nuestro smartphone.  
 
 ## :computer: Estado del proyecto
 
