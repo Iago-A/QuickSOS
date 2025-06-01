@@ -8,7 +8,7 @@ QuickSOS es una aplicación para móviles Android, desarrollada como proyecto de
 
 La aplicación ha sido desarrollada utilizando Android como plataforma principal, con Firebase como backend para la gestión de datos. Está pensada para cualquier usuario con un dispositivo Android y conexión a internet. Entre sus funciones principales se incluye la marcación directa de números de emergencia desde la propia app y la posibilidad de añadir contactos personalizados de interés para cada usuario.
 
-En cuanto al ámbito lingüístico, ofrece soporte en Español, Gallego, Euskera, Catalán, Inglés, Portugués, Francés, Alemanán e Italiano. A largo plazo, también se podría incorporar teléfonos de emergencia de otros países, lo que abriría la posibilidad de uso a nivel internacional.
+En cuanto al ámbito lingüístico, ofrece soporte en Español, Gallego, Euskera, Catalán, Inglés, Portugués, Francés, Alemán e Italiano. A largo plazo, también se podría incorporar teléfonos de emergencia de otros países, lo que abriría la posibilidad de uso a nivel internacional.
 
 ## :iphone: Funcionalidades de la aplicación
 - `Inicio de sesión`: Los usuarios pueden iniciar sesión con su cuenta para poder ver todos los contactos predeterminados y personales guardados en la base de datos de Firebase. Una vez iniciada sesión, no habrá que volver a hacerlo si se cierra la app mientras no se cierre la sesión por el propio usuario.
@@ -30,7 +30,7 @@ De forma muy sencilla se puede:
  
 - `Inicio se sesión como invitado`: También se permite entrar sin necesidad de crear una cuenta, pero solo se puede visualizar la lista de contactos predeterminados.
 
-- `Soporte de lenguajes`: La propia app cambiará de Español a Inglés dependiendo de cual sea el lenguaje definido de nuestro smartphone.
+- `Soporte de lenguajes`: La propia app cambiará de idioma dependiendo de cual sea el lenguaje definido de nuestro smartphone.
 
 ## :camera: Capturas
 
